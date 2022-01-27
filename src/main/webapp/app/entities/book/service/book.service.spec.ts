@@ -21,9 +21,9 @@ describe('Book Service', () => {
 
     elemDefault = {
       id: 0,
-      bookName: 'AAAAAAA',
+      nameOFBook: 'AAAAAAA',
       authorName: 'AAAAAAA',
-      nomOFBooks: 0,
+      numOFBooks: 0,
       isDnNomber: 'AAAAAAA',
       subjectBook: 'AAAAAAA',
       langOfBook: 'AAAAAAA',
@@ -62,9 +62,9 @@ describe('Book Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          bookName: 'BBBBBB',
+          nameOFBook: 'BBBBBB',
           authorName: 'BBBBBB',
-          nomOFBooks: 1,
+          numOFBooks: 1,
           isDnNomber: 'BBBBBB',
           subjectBook: 'BBBBBB',
           langOfBook: 'BBBBBB',
@@ -85,7 +85,7 @@ describe('Book Service', () => {
       const patchObject = Object.assign(
         {
           authorName: 'BBBBBB',
-          nomOFBooks: 1,
+          numOFBooks: 1,
           isDnNomber: 'BBBBBB',
         },
         new Book()
@@ -106,9 +106,9 @@ describe('Book Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          bookName: 'BBBBBB',
+          nameOFBook: 'BBBBBB',
           authorName: 'BBBBBB',
-          nomOFBooks: 1,
+          numOFBooks: 1,
           isDnNomber: 'BBBBBB',
           subjectBook: 'BBBBBB',
           langOfBook: 'BBBBBB',

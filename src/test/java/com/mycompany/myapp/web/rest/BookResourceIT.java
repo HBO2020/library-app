@@ -29,14 +29,14 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class BookResourceIT {
 
-    private static final String DEFAULT_BOOK_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_BOOK_NAME = "BBBBBBBBBB";
+    private static final String DEFAULT_NAME_OF_BOOK = "AAAAAAAAAA";
+    private static final String UPDATED_NAME_OF_BOOK = "BBBBBBBBBB";
 
     private static final String DEFAULT_AUTHOR_NAME = "AAAAAAAAAA";
     private static final String UPDATED_AUTHOR_NAME = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_NOM_OF_BOOKS = 1;
-    private static final Integer UPDATED_NOM_OF_BOOKS = 2;
+    private static final Integer DEFAULT_NUM_OF_BOOKS = 1;
+    private static final Integer UPDATED_NUM_OF_BOOKS = 2;
 
     private static final String DEFAULT_IS_DN_NOMBER = "AAAAAAAAAA";
     private static final String UPDATED_IS_DN_NOMBER = "BBBBBBBBBB";
@@ -72,9 +72,9 @@ class BookResourceIT {
      */
     public static Book createEntity(EntityManager em) {
         Book book = new Book()
-            .bookName(DEFAULT_BOOK_NAME)
+            .nameOFBook(DEFAULT_NAME_OF_BOOK)
             .authorName(DEFAULT_AUTHOR_NAME)
-            .nomOFBooks(DEFAULT_NOM_OF_BOOKS)
+            .numOFBooks(DEFAULT_NUM_OF_BOOKS)
             .isDnNomber(DEFAULT_IS_DN_NOMBER)
             .subjectBook(DEFAULT_SUBJECT_BOOK)
             .langOfBook(DEFAULT_LANG_OF_BOOK);
@@ -89,9 +89,9 @@ class BookResourceIT {
      */
     public static Book createUpdatedEntity(EntityManager em) {
         Book book = new Book()
-            .bookName(UPDATED_BOOK_NAME)
+            .nameOFBook(UPDATED_NAME_OF_BOOK)
             .authorName(UPDATED_AUTHOR_NAME)
-            .nomOFBooks(UPDATED_NOM_OF_BOOKS)
+            .numOFBooks(UPDATED_NUM_OF_BOOKS)
             .isDnNomber(UPDATED_IS_DN_NOMBER)
             .subjectBook(UPDATED_SUBJECT_BOOK)
             .langOfBook(UPDATED_LANG_OF_BOOK);
@@ -116,9 +116,9 @@ class BookResourceIT {
         List<Book> bookList = bookRepository.findAll();
         assertThat(bookList).hasSize(databaseSizeBeforeCreate + 1);
         Book testBook = bookList.get(bookList.size() - 1);
-        assertThat(testBook.getBookName()).isEqualTo(DEFAULT_BOOK_NAME);
+        assertThat(testBook.getNameOFBook()).isEqualTo(DEFAULT_NAME_OF_BOOK);
         assertThat(testBook.getAuthorName()).isEqualTo(DEFAULT_AUTHOR_NAME);
-        assertThat(testBook.getNomOFBooks()).isEqualTo(DEFAULT_NOM_OF_BOOKS);
+        assertThat(testBook.getNumOFBooks()).isEqualTo(DEFAULT_NUM_OF_BOOKS);
         assertThat(testBook.getIsDnNomber()).isEqualTo(DEFAULT_IS_DN_NOMBER);
         assertThat(testBook.getSubjectBook()).isEqualTo(DEFAULT_SUBJECT_BOOK);
         assertThat(testBook.getLangOfBook()).isEqualTo(DEFAULT_LANG_OF_BOOK);
@@ -154,9 +154,9 @@ class BookResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(book.getId().intValue())))
-            .andExpect(jsonPath("$.[*].bookName").value(hasItem(DEFAULT_BOOK_NAME)))
+            .andExpect(jsonPath("$.[*].nameOFBook").value(hasItem(DEFAULT_NAME_OF_BOOK)))
             .andExpect(jsonPath("$.[*].authorName").value(hasItem(DEFAULT_AUTHOR_NAME)))
-            .andExpect(jsonPath("$.[*].nomOFBooks").value(hasItem(DEFAULT_NOM_OF_BOOKS)))
+            .andExpect(jsonPath("$.[*].numOFBooks").value(hasItem(DEFAULT_NUM_OF_BOOKS)))
             .andExpect(jsonPath("$.[*].isDnNomber").value(hasItem(DEFAULT_IS_DN_NOMBER)))
             .andExpect(jsonPath("$.[*].subjectBook").value(hasItem(DEFAULT_SUBJECT_BOOK)))
             .andExpect(jsonPath("$.[*].langOfBook").value(hasItem(DEFAULT_LANG_OF_BOOK)));
@@ -174,9 +174,9 @@ class BookResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(book.getId().intValue()))
-            .andExpect(jsonPath("$.bookName").value(DEFAULT_BOOK_NAME))
+            .andExpect(jsonPath("$.nameOFBook").value(DEFAULT_NAME_OF_BOOK))
             .andExpect(jsonPath("$.authorName").value(DEFAULT_AUTHOR_NAME))
-            .andExpect(jsonPath("$.nomOFBooks").value(DEFAULT_NOM_OF_BOOKS))
+            .andExpect(jsonPath("$.numOFBooks").value(DEFAULT_NUM_OF_BOOKS))
             .andExpect(jsonPath("$.isDnNomber").value(DEFAULT_IS_DN_NOMBER))
             .andExpect(jsonPath("$.subjectBook").value(DEFAULT_SUBJECT_BOOK))
             .andExpect(jsonPath("$.langOfBook").value(DEFAULT_LANG_OF_BOOK));
@@ -202,9 +202,9 @@ class BookResourceIT {
         // Disconnect from session so that the updates on updatedBook are not directly saved in db
         em.detach(updatedBook);
         updatedBook
-            .bookName(UPDATED_BOOK_NAME)
+            .nameOFBook(UPDATED_NAME_OF_BOOK)
             .authorName(UPDATED_AUTHOR_NAME)
-            .nomOFBooks(UPDATED_NOM_OF_BOOKS)
+            .numOFBooks(UPDATED_NUM_OF_BOOKS)
             .isDnNomber(UPDATED_IS_DN_NOMBER)
             .subjectBook(UPDATED_SUBJECT_BOOK)
             .langOfBook(UPDATED_LANG_OF_BOOK);
@@ -221,9 +221,9 @@ class BookResourceIT {
         List<Book> bookList = bookRepository.findAll();
         assertThat(bookList).hasSize(databaseSizeBeforeUpdate);
         Book testBook = bookList.get(bookList.size() - 1);
-        assertThat(testBook.getBookName()).isEqualTo(UPDATED_BOOK_NAME);
+        assertThat(testBook.getNameOFBook()).isEqualTo(UPDATED_NAME_OF_BOOK);
         assertThat(testBook.getAuthorName()).isEqualTo(UPDATED_AUTHOR_NAME);
-        assertThat(testBook.getNomOFBooks()).isEqualTo(UPDATED_NOM_OF_BOOKS);
+        assertThat(testBook.getNumOFBooks()).isEqualTo(UPDATED_NUM_OF_BOOKS);
         assertThat(testBook.getIsDnNomber()).isEqualTo(UPDATED_IS_DN_NOMBER);
         assertThat(testBook.getSubjectBook()).isEqualTo(UPDATED_SUBJECT_BOOK);
         assertThat(testBook.getLangOfBook()).isEqualTo(UPDATED_LANG_OF_BOOK);
@@ -311,9 +311,9 @@ class BookResourceIT {
         List<Book> bookList = bookRepository.findAll();
         assertThat(bookList).hasSize(databaseSizeBeforeUpdate);
         Book testBook = bookList.get(bookList.size() - 1);
-        assertThat(testBook.getBookName()).isEqualTo(DEFAULT_BOOK_NAME);
+        assertThat(testBook.getNameOFBook()).isEqualTo(DEFAULT_NAME_OF_BOOK);
         assertThat(testBook.getAuthorName()).isEqualTo(DEFAULT_AUTHOR_NAME);
-        assertThat(testBook.getNomOFBooks()).isEqualTo(DEFAULT_NOM_OF_BOOKS);
+        assertThat(testBook.getNumOFBooks()).isEqualTo(DEFAULT_NUM_OF_BOOKS);
         assertThat(testBook.getIsDnNomber()).isEqualTo(DEFAULT_IS_DN_NOMBER);
         assertThat(testBook.getSubjectBook()).isEqualTo(UPDATED_SUBJECT_BOOK);
         assertThat(testBook.getLangOfBook()).isEqualTo(DEFAULT_LANG_OF_BOOK);
@@ -332,9 +332,9 @@ class BookResourceIT {
         partialUpdatedBook.setId(book.getId());
 
         partialUpdatedBook
-            .bookName(UPDATED_BOOK_NAME)
+            .nameOFBook(UPDATED_NAME_OF_BOOK)
             .authorName(UPDATED_AUTHOR_NAME)
-            .nomOFBooks(UPDATED_NOM_OF_BOOKS)
+            .numOFBooks(UPDATED_NUM_OF_BOOKS)
             .isDnNomber(UPDATED_IS_DN_NOMBER)
             .subjectBook(UPDATED_SUBJECT_BOOK)
             .langOfBook(UPDATED_LANG_OF_BOOK);
@@ -351,9 +351,9 @@ class BookResourceIT {
         List<Book> bookList = bookRepository.findAll();
         assertThat(bookList).hasSize(databaseSizeBeforeUpdate);
         Book testBook = bookList.get(bookList.size() - 1);
-        assertThat(testBook.getBookName()).isEqualTo(UPDATED_BOOK_NAME);
+        assertThat(testBook.getNameOFBook()).isEqualTo(UPDATED_NAME_OF_BOOK);
         assertThat(testBook.getAuthorName()).isEqualTo(UPDATED_AUTHOR_NAME);
-        assertThat(testBook.getNomOFBooks()).isEqualTo(UPDATED_NOM_OF_BOOKS);
+        assertThat(testBook.getNumOFBooks()).isEqualTo(UPDATED_NUM_OF_BOOKS);
         assertThat(testBook.getIsDnNomber()).isEqualTo(UPDATED_IS_DN_NOMBER);
         assertThat(testBook.getSubjectBook()).isEqualTo(UPDATED_SUBJECT_BOOK);
         assertThat(testBook.getLangOfBook()).isEqualTo(UPDATED_LANG_OF_BOOK);

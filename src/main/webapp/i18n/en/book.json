@@ -18,13 +18,14 @@
         "title": "Book"
       },
       "id": "ID",
-      "bookName": "Book Name",
+      "nameOFBook": "Name OF Book",
       "authorName": "Author Name",
-      "nomOFBooks": "Nom OF Books",
+      "numOFBooks": "Num OF Books",
       "isDnNomber": "Is Dn Nomber",
       "subjectBook": "Subject Book",
       "langOfBook": "Lang Of Book",
       "staff": "Staff",
+      "image": "Image",
       "member": "Member",
       "catalogue": "Catalogue"
     }

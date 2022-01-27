@@ -30,9 +30,9 @@ export class BookUpdatePage {
   cancelButton = element(by.id('cancel-save'));
 
   idInput = element(by.id('field_id'));
-  bookNameInput = element(by.id('field_bookName'));
+  nameOFBookInput = element(by.id('field_nameOFBook'));
   authorNameInput = element(by.id('field_authorName'));
-  nomOFBooksInput = element(by.id('field_nomOFBooks'));
+  numOFBooksInput = element(by.id('field_numOFBooks'));
   isDnNomberInput = element(by.id('field_isDnNomber'));
   subjectBookInput = element(by.id('field_subjectBook'));
   langOfBookInput = element(by.id('field_langOfBook'));
@@ -49,12 +49,12 @@ export class BookUpdatePage {
     return await this.idInput.getAttribute('value');
   }
 
-  async setBookNameInput(bookName: string): Promise<void> {
-    await this.bookNameInput.sendKeys(bookName);
+  async setNameOFBookInput(nameOFBook: string): Promise<void> {
+    await this.nameOFBookInput.sendKeys(nameOFBook);
   }
 
-  async getBookNameInput(): Promise<string> {
-    return await this.bookNameInput.getAttribute('value');
+  async getNameOFBookInput(): Promise<string> {
+    return await this.nameOFBookInput.getAttribute('value');
   }
 
   async setAuthorNameInput(authorName: string): Promise<void> {
@@ -65,12 +65,12 @@ export class BookUpdatePage {
     return await this.authorNameInput.getAttribute('value');
   }
 
-  async setNomOFBooksInput(nomOFBooks: string): Promise<void> {
-    await this.nomOFBooksInput.sendKeys(nomOFBooks);
+  async setNumOFBooksInput(numOFBooks: string): Promise<void> {
+    await this.numOFBooksInput.sendKeys(numOFBooks);
   }
 
-  async getNomOFBooksInput(): Promise<string> {
-    return await this.nomOFBooksInput.getAttribute('value');
+  async getNumOFBooksInput(): Promise<string> {
+    return await this.numOFBooksInput.getAttribute('value');
   }
 
   async setIsDnNomberInput(isDnNomber: string): Promise<void> {

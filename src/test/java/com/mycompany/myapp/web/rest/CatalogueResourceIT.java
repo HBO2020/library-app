@@ -38,8 +38,8 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class CatalogueResourceIT {
 
-    private static final String DEFAULT_AUTHOR_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_AUTHOR_NAME = "BBBBBBBBBB";
+    private static final String DEFAULT_NAME_OF_AUTHOR = "AAAAAAAAAA";
+    private static final String UPDATED_NAME_OF_AUTHOR = "BBBBBBBBBB";
 
     private static final Integer DEFAULT_NOM_OF_COPIES = 1;
     private static final Integer UPDATED_NOM_OF_COPIES = 2;
@@ -74,7 +74,7 @@ class CatalogueResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Catalogue createEntity(EntityManager em) {
-        Catalogue catalogue = new Catalogue().authorName(DEFAULT_AUTHOR_NAME).nomOfCopies(DEFAULT_NOM_OF_COPIES);
+        Catalogue catalogue = new Catalogue().nameOfAuthor(DEFAULT_NAME_OF_AUTHOR).nomOfCopies(DEFAULT_NOM_OF_COPIES);
         return catalogue;
     }
 
@@ -85,7 +85,7 @@ class CatalogueResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Catalogue createUpdatedEntity(EntityManager em) {
-        Catalogue catalogue = new Catalogue().authorName(UPDATED_AUTHOR_NAME).nomOfCopies(UPDATED_NOM_OF_COPIES);
+        Catalogue catalogue = new Catalogue().nameOfAuthor(UPDATED_NAME_OF_AUTHOR).nomOfCopies(UPDATED_NOM_OF_COPIES);
         return catalogue;
     }
 
@@ -107,7 +107,7 @@ class CatalogueResourceIT {
         List<Catalogue> catalogueList = catalogueRepository.findAll();
         assertThat(catalogueList).hasSize(databaseSizeBeforeCreate + 1);
         Catalogue testCatalogue = catalogueList.get(catalogueList.size() - 1);
-        assertThat(testCatalogue.getAuthorName()).isEqualTo(DEFAULT_AUTHOR_NAME);
+        assertThat(testCatalogue.getNameOfAuthor()).isEqualTo(DEFAULT_NAME_OF_AUTHOR);
         assertThat(testCatalogue.getNomOfCopies()).isEqualTo(DEFAULT_NOM_OF_COPIES);
     }
 
@@ -141,7 +141,7 @@ class CatalogueResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(catalogue.getId().intValue())))
-            .andExpect(jsonPath("$.[*].authorName").value(hasItem(DEFAULT_AUTHOR_NAME)))
+            .andExpect(jsonPath("$.[*].nameOfAuthor").value(hasItem(DEFAULT_NAME_OF_AUTHOR)))
             .andExpect(jsonPath("$.[*].nomOfCopies").value(hasItem(DEFAULT_NOM_OF_COPIES)));
     }
 
@@ -175,7 +175,7 @@ class CatalogueResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(catalogue.getId().intValue()))
-            .andExpect(jsonPath("$.authorName").value(DEFAULT_AUTHOR_NAME))
+            .andExpect(jsonPath("$.nameOfAuthor").value(DEFAULT_NAME_OF_AUTHOR))
             .andExpect(jsonPath("$.nomOfCopies").value(DEFAULT_NOM_OF_COPIES));
     }
 
@@ -198,7 +198,7 @@ class CatalogueResourceIT {
         Catalogue updatedCatalogue = catalogueRepository.findById(catalogue.getId()).get();
         // Disconnect from session so that the updates on updatedCatalogue are not directly saved in db
         em.detach(updatedCatalogue);
-        updatedCatalogue.authorName(UPDATED_AUTHOR_NAME).nomOfCopies(UPDATED_NOM_OF_COPIES);
+        updatedCatalogue.nameOfAuthor(UPDATED_NAME_OF_AUTHOR).nomOfCopies(UPDATED_NOM_OF_COPIES);
 
         restCatalogueMockMvc
             .perform(
@@ -212,7 +212,7 @@ class CatalogueResourceIT {
         List<Catalogue> catalogueList = catalogueRepository.findAll();
         assertThat(catalogueList).hasSize(databaseSizeBeforeUpdate);
         Catalogue testCatalogue = catalogueList.get(catalogueList.size() - 1);
-        assertThat(testCatalogue.getAuthorName()).isEqualTo(UPDATED_AUTHOR_NAME);
+        assertThat(testCatalogue.getNameOfAuthor()).isEqualTo(UPDATED_NAME_OF_AUTHOR);
         assertThat(testCatalogue.getNomOfCopies()).isEqualTo(UPDATED_NOM_OF_COPIES);
     }
 
@@ -284,7 +284,7 @@ class CatalogueResourceIT {
         Catalogue partialUpdatedCatalogue = new Catalogue();
         partialUpdatedCatalogue.setId(catalogue.getId());
 
-        partialUpdatedCatalogue.authorName(UPDATED_AUTHOR_NAME);
+        partialUpdatedCatalogue.nameOfAuthor(UPDATED_NAME_OF_AUTHOR);
 
         restCatalogueMockMvc
             .perform(
@@ -298,7 +298,7 @@ class CatalogueResourceIT {
         List<Catalogue> catalogueList = catalogueRepository.findAll();
         assertThat(catalogueList).hasSize(databaseSizeBeforeUpdate);
         Catalogue testCatalogue = catalogueList.get(catalogueList.size() - 1);
-        assertThat(testCatalogue.getAuthorName()).isEqualTo(UPDATED_AUTHOR_NAME);
+        assertThat(testCatalogue.getNameOfAuthor()).isEqualTo(UPDATED_NAME_OF_AUTHOR);
         assertThat(testCatalogue.getNomOfCopies()).isEqualTo(DEFAULT_NOM_OF_COPIES);
     }
 
@@ -314,7 +314,7 @@ class CatalogueResourceIT {
         Catalogue partialUpdatedCatalogue = new Catalogue();
         partialUpdatedCatalogue.setId(catalogue.getId());
 
-        partialUpdatedCatalogue.authorName(UPDATED_AUTHOR_NAME).nomOfCopies(UPDATED_NOM_OF_COPIES);
+        partialUpdatedCatalogue.nameOfAuthor(UPDATED_NAME_OF_AUTHOR).nomOfCopies(UPDATED_NOM_OF_COPIES);
 
         restCatalogueMockMvc
             .perform(
@@ -328,7 +328,7 @@ class CatalogueResourceIT {
         List<Catalogue> catalogueList = catalogueRepository.findAll();
         assertThat(catalogueList).hasSize(databaseSizeBeforeUpdate);
         Catalogue testCatalogue = catalogueList.get(catalogueList.size() - 1);
-        assertThat(testCatalogue.getAuthorName()).isEqualTo(UPDATED_AUTHOR_NAME);
+        assertThat(testCatalogue.getNameOfAuthor()).isEqualTo(UPDATED_NAME_OF_AUTHOR);
         assertThat(testCatalogue.getNomOfCopies()).isEqualTo(UPDATED_NOM_OF_COPIES);
     }
 

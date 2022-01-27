@@ -24,6 +24,11 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'libraryApp.member.home.title' },
         loadChildren: () => import('./member/member.module').then(m => m.MemberModule),
       },
+      {
+        path: 'image',
+        data: { pageTitle: 'libraryApp.image.home.title' },
+        loadChildren: () => import('./image/image.module').then(m => m.ImageModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

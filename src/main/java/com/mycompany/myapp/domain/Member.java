@@ -34,7 +34,7 @@ public class Member implements Serializable {
      */
     @Schema(description = "Another side of the same relationship")
     @ManyToOne
-    @JsonIgnoreProperties(value = { "staff", "members", "catalogues" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "staff", "images", "members", "catalogues" }, allowSetters = true)
     private Book book;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

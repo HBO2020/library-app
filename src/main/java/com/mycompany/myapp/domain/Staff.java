@@ -31,7 +31,7 @@ public class Staff implements Serializable {
     private String password;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "staff", "members", "catalogues" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "staff", "images", "members", "catalogues" }, allowSetters = true)
     private Book book;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

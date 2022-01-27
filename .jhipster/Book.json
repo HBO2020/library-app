@@ -6,7 +6,7 @@
   "entityTableName": "book",
   "fields": [
     {
-      "fieldName": "bookName",
+      "fieldName": "nameOFBook",
       "fieldType": "String"
     },
     {
@@ -14,7 +14,7 @@
       "fieldType": "String"
     },
     {
-      "fieldName": "nomOFBooks",
+      "fieldName": "numOFBooks",
       "fieldType": "Integer"
     },
     {
@@ -40,6 +40,12 @@
       "otherEntityName": "staff",
       "otherEntityRelationshipName": "book",
       "relationshipName": "staff",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "image",
+      "otherEntityRelationshipName": "book",
+      "relationshipName": "image",
       "relationshipType": "one-to-many"
     },
     {
