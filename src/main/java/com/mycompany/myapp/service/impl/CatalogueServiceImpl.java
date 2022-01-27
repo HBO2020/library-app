@@ -40,8 +40,8 @@ public class CatalogueServiceImpl implements CatalogueService {
         return catalogueRepository
             .findById(catalogue.getId())
             .map(existingCatalogue -> {
-                if (catalogue.getAuthorName() != null) {
-                    existingCatalogue.setAuthorName(catalogue.getAuthorName());
+                if (catalogue.getNameOfAuthor() != null) {
+                    existingCatalogue.setNameOfAuthor(catalogue.getNameOfAuthor());
                 }
                 if (catalogue.getNomOfCopies() != null) {
                     existingCatalogue.setNomOfCopies(catalogue.getNomOfCopies());

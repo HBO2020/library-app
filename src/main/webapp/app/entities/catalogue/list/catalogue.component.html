@@ -33,7 +33,7 @@
       <thead>
         <tr>
           <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
-          <th scope="col"><span jhiTranslate="libraryApp.catalogue.authorName">Author Name</span></th>
+          <th scope="col"><span jhiTranslate="libraryApp.catalogue.nameOfAuthor">Name Of Author</span></th>
           <th scope="col"><span jhiTranslate="libraryApp.catalogue.nomOfCopies">Nom Of Copies</span></th>
           <th scope="col"><span jhiTranslate="libraryApp.catalogue.book">Book</span></th>
           <th scope="col"></th>
@@ -44,7 +44,7 @@
           <td>
             <a [routerLink]="['/catalogue', catalogue.id, 'view']">{{ catalogue.id }}</a>
           </td>
-          <td>{{ catalogue.authorName }}</td>
+          <td>{{ catalogue.nameOfAuthor }}</td>
           <td>{{ catalogue.nomOfCopies }}</td>
           <td>
             <span *ngFor="let book of catalogue.books; let last = last">

@@ -18,7 +18,7 @@
         "title": "Catalogue"
       },
       "id": "ID",
-      "authorName": "Author Name",
+      "nameOfAuthor": "Name Of Author",
       "nomOfCopies": "Nom Of Copies",
       "book": "Book"
     }

@@ -43,9 +43,9 @@ describe('Book e2e test', () => {
     await bookComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      bookUpdatePage.setBookNameInput('bookName'),
+      bookUpdatePage.setNameOFBookInput('nameOFBook'),
       bookUpdatePage.setAuthorNameInput('authorName'),
-      bookUpdatePage.setNomOFBooksInput('5'),
+      bookUpdatePage.setNumOFBooksInput('5'),
       bookUpdatePage.setIsDnNomberInput('isDnNomber'),
       bookUpdatePage.setSubjectBookInput('subjectBook'),
       bookUpdatePage.setLangOfBookInput('langOfBook'),

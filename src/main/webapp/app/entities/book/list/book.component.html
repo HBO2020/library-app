@@ -33,9 +33,9 @@
       <thead>
         <tr>
           <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
-          <th scope="col"><span jhiTranslate="libraryApp.book.bookName">Book Name</span></th>
+          <th scope="col"><span jhiTranslate="libraryApp.book.nameOFBook">Name OF Book</span></th>
           <th scope="col"><span jhiTranslate="libraryApp.book.authorName">Author Name</span></th>
-          <th scope="col"><span jhiTranslate="libraryApp.book.nomOFBooks">Nom OF Books</span></th>
+          <th scope="col"><span jhiTranslate="libraryApp.book.numOFBooks">Num OF Books</span></th>
           <th scope="col"><span jhiTranslate="libraryApp.book.isDnNomber">Is Dn Nomber</span></th>
           <th scope="col"><span jhiTranslate="libraryApp.book.subjectBook">Subject Book</span></th>
           <th scope="col"><span jhiTranslate="libraryApp.book.langOfBook">Lang Of Book</span></th>
@@ -47,9 +47,9 @@
           <td>
             <a [routerLink]="['/book', book.id, 'view']">{{ book.id }}</a>
           </td>
-          <td>{{ book.bookName }}</td>
+          <td>{{ book.nameOFBook }}</td>
           <td>{{ book.authorName }}</td>
-          <td>{{ book.nomOFBooks }}</td>
+          <td>{{ book.numOFBooks }}</td>
           <td>{{ book.isDnNomber }}</td>
           <td>{{ book.subjectBook }}</td>
           <td>{{ book.langOfBook }}</td>

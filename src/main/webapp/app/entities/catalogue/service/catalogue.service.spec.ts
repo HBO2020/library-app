@@ -21,7 +21,7 @@ describe('Catalogue Service', () => {
 
     elemDefault = {
       id: 0,
-      authorName: 'AAAAAAA',
+      nameOfAuthor: 'AAAAAAA',
       nomOfCopies: 0,
     };
   });
@@ -58,7 +58,7 @@ describe('Catalogue Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          authorName: 'BBBBBB',
+          nameOfAuthor: 'BBBBBB',
           nomOfCopies: 1,
         },
         elemDefault
@@ -76,7 +76,7 @@ describe('Catalogue Service', () => {
     it('should partial update a Catalogue', () => {
       const patchObject = Object.assign(
         {
-          authorName: 'BBBBBB',
+          nameOfAuthor: 'BBBBBB',
           nomOfCopies: 1,
         },
         new Catalogue()
@@ -97,7 +97,7 @@ describe('Catalogue Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          authorName: 'BBBBBB',
+          nameOfAuthor: 'BBBBBB',
           nomOfCopies: 1,
         },
         elemDefault

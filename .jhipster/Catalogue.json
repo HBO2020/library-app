@@ -6,7 +6,7 @@
   "entityTableName": "catalogue",
   "fields": [
     {
-      "fieldName": "authorName",
+      "fieldName": "nameOfAuthor",
       "fieldType": "String"
     },
     {

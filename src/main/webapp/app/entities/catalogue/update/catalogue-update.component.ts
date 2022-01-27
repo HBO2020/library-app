@@ -21,7 +21,7 @@ export class CatalogueUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    authorName: [],
+    nameOfAuthor: [],
     nomOfCopies: [],
     books: [],
   });
@@ -92,7 +92,7 @@ export class CatalogueUpdateComponent implements OnInit {
   protected updateForm(catalogue: ICatalogue): void {
     this.editForm.patchValue({
       id: catalogue.id,
-      authorName: catalogue.authorName,
+      nameOfAuthor: catalogue.nameOfAuthor,
       nomOfCopies: catalogue.nomOfCopies,
       books: catalogue.books,
     });
@@ -112,7 +112,7 @@ export class CatalogueUpdateComponent implements OnInit {
     return {
       ...new Catalogue(),
       id: this.editForm.get(['id'])!.value,
-      authorName: this.editForm.get(['authorName'])!.value,
+      nameOfAuthor: this.editForm.get(['nameOfAuthor'])!.value,
       nomOfCopies: this.editForm.get(['nomOfCopies'])!.value,
       books: this.editForm.get(['books'])!.value,
     };

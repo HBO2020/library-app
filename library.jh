@@ -1,13 +1,13 @@
 
 entity Catalogue {
-	authorName String,
+	nameOfAuthor String,
     nomOfCopies Integer
 }
 
 entity Book {
-	bookName String,
+	nameOFBook String,
     authorName String,
-    nomOFBooks Integer,
+    numOFBooks Integer,
     isDnNomber String,
     subjectBook String,
     langOfBook String
@@ -25,6 +25,12 @@ entity Member {
     passwordMember String
 }
 
+entity Image {
+	imageBook Blob,
+    imageLibelle String,
+    imageCode Integer
+}
+
 enum Language {
     FRENCH, ENGLISH, SPANISH
 }
@@ -37,6 +43,7 @@ relationship ManyToMany {
 // defining multiple OneToMany relationships with comments
 relationship OneToMany {
 	Book to Staff{book},
+    Book to Image{book},
 	/**
 	* A relationship
 	*/

@@ -25,14 +25,14 @@ public class Book implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "book_name")
-    private String bookName;
+    @Column(name = "name_of_book")
+    private String nameOFBook;
 
     @Column(name = "author_name")
     private String authorName;
 
-    @Column(name = "nom_of_books")
-    private Integer nomOFBooks;
+    @Column(name = "num_of_books")
+    private Integer numOFBooks;
 
     @Column(name = "is_dn_nomber")
     private String isDnNomber;
@@ -47,6 +47,11 @@ public class Book implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "book" }, allowSetters = true)
     private Set<Staff> staff = new HashSet<>();
+
+    @OneToMany(mappedBy = "book")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "book" }, allowSetters = true)
+    private Set<Image> images = new HashSet<>();
 
     /**
      * A relationship
@@ -77,17 +82,17 @@ public class Book implements Serializable {
         this.id = id;
     }
 
-    public String getBookName() {
-        return this.bookName;
+    public String getNameOFBook() {
+        return this.nameOFBook;
     }
 
-    public Book bookName(String bookName) {
-        this.setBookName(bookName);
+    public Book nameOFBook(String nameOFBook) {
+        this.setNameOFBook(nameOFBook);
         return this;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    public void setNameOFBook(String nameOFBook) {
+        this.nameOFBook = nameOFBook;
     }
 
     public String getAuthorName() {
@@ -103,17 +108,17 @@ public class Book implements Serializable {
         this.authorName = authorName;
     }
 
-    public Integer getNomOFBooks() {
-        return this.nomOFBooks;
+    public Integer getNumOFBooks() {
+        return this.numOFBooks;
     }
 
-    public Book nomOFBooks(Integer nomOFBooks) {
-        this.setNomOFBooks(nomOFBooks);
+    public Book numOFBooks(Integer numOFBooks) {
+        this.setNumOFBooks(numOFBooks);
         return this;
     }
 
-    public void setNomOFBooks(Integer nomOFBooks) {
-        this.nomOFBooks = nomOFBooks;
+    public void setNumOFBooks(Integer numOFBooks) {
+        this.numOFBooks = numOFBooks;
     }
 
     public String getIsDnNomber() {
@@ -183,6 +188,37 @@ public class Book implements Serializable {
     public Book removeStaff(Staff staff) {
         this.staff.remove(staff);
         staff.setBook(null);
+        return this;
+    }
+
+    public Set<Image> getImages() {
+        return this.images;
+    }
+
+    public void setImages(Set<Image> images) {
+        if (this.images != null) {
+            this.images.forEach(i -> i.setBook(null));
+        }
+        if (images != null) {
+            images.forEach(i -> i.setBook(this));
+        }
+        this.images = images;
+    }
+
+    public Book images(Set<Image> images) {
+        this.setImages(images);
+        return this;
+    }
+
+    public Book addImage(Image image) {
+        this.images.add(image);
+        image.setBook(this);
+        return this;
+    }
+
+    public Book removeImage(Image image) {
+        this.images.remove(image);
+        image.setBook(null);
         return this;
     }
 
@@ -272,9 +308,9 @@ public class Book implements Serializable {
     public String toString() {
         return "Book{" +
             "id=" + getId() +
-            ", bookName='" + getBookName() + "'" +
+            ", nameOFBook='" + getNameOFBook() + "'" +
             ", authorName='" + getAuthorName() + "'" +
-            ", nomOFBooks=" + getNomOFBooks() +
+            ", numOFBooks=" + getNumOFBooks() +
             ", isDnNomber='" + getIsDnNomber() + "'" +
             ", subjectBook='" + getSubjectBook() + "'" +
             ", langOfBook='" + getLangOfBook() + "'" +

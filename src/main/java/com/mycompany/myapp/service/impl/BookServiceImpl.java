@@ -38,14 +38,14 @@ public class BookServiceImpl implements BookService {
         return bookRepository
             .findById(book.getId())
             .map(existingBook -> {
-                if (book.getBookName() != null) {
-                    existingBook.setBookName(book.getBookName());
+                if (book.getNameOFBook() != null) {
+                    existingBook.setNameOFBook(book.getNameOFBook());
                 }
                 if (book.getAuthorName() != null) {
                     existingBook.setAuthorName(book.getAuthorName());
                 }
-                if (book.getNomOFBooks() != null) {
-                    existingBook.setNomOFBooks(book.getNomOFBooks());
+                if (book.getNumOFBooks() != null) {
+                    existingBook.setNumOFBooks(book.getNumOFBooks());
                 }
                 if (book.getIsDnNomber() != null) {
                     existingBook.setIsDnNomber(book.getIsDnNomber());

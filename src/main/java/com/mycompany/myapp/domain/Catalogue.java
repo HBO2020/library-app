@@ -24,8 +24,8 @@ public class Catalogue implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "author_name")
-    private String authorName;
+    @Column(name = "name_of_author")
+    private String nameOfAuthor;
 
     @Column(name = "nom_of_copies")
     private Integer nomOfCopies;
@@ -37,7 +37,7 @@ public class Catalogue implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "book_id")
     )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "staff", "members", "catalogues" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "staff", "images", "members", "catalogues" }, allowSetters = true)
     private Set<Book> books = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -55,17 +55,17 @@ public class Catalogue implements Serializable {
         this.id = id;
     }
 
-    public String getAuthorName() {
-        return this.authorName;
+    public String getNameOfAuthor() {
+        return this.nameOfAuthor;
     }
 
-    public Catalogue authorName(String authorName) {
-        this.setAuthorName(authorName);
+    public Catalogue nameOfAuthor(String nameOfAuthor) {
+        this.setNameOfAuthor(nameOfAuthor);
         return this;
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
+    public void setNameOfAuthor(String nameOfAuthor) {
+        this.nameOfAuthor = nameOfAuthor;
     }
 
     public Integer getNomOfCopies() {
@@ -130,7 +130,7 @@ public class Catalogue implements Serializable {
     public String toString() {
         return "Catalogue{" +
             "id=" + getId() +
-            ", authorName='" + getAuthorName() + "'" +
+            ", nameOfAuthor='" + getNameOfAuthor() + "'" +
             ", nomOfCopies=" + getNomOfCopies() +
             "}";
     }

@@ -43,7 +43,7 @@ describe('Catalogue e2e test', () => {
     await catalogueComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      catalogueUpdatePage.setAuthorNameInput('authorName'),
+      catalogueUpdatePage.setNameOfAuthorInput('nameOfAuthor'),
       catalogueUpdatePage.setNomOfCopiesInput('5'),
       // catalogueUpdatePage.bookSelectLastOption(),
     ]);

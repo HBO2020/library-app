@@ -30,7 +30,7 @@ export class CatalogueUpdatePage {
   cancelButton = element(by.id('cancel-save'));
 
   idInput = element(by.id('field_id'));
-  authorNameInput = element(by.id('field_authorName'));
+  nameOfAuthorInput = element(by.id('field_nameOfAuthor'));
   nomOfCopiesInput = element(by.id('field_nomOfCopies'));
 
   bookSelect = element(by.id('field_book'));
@@ -47,12 +47,12 @@ export class CatalogueUpdatePage {
     return await this.idInput.getAttribute('value');
   }
 
-  async setAuthorNameInput(authorName: string): Promise<void> {
-    await this.authorNameInput.sendKeys(authorName);
+  async setNameOfAuthorInput(nameOfAuthor: string): Promise<void> {
+    await this.nameOfAuthorInput.sendKeys(nameOfAuthor);
   }
 
-  async getAuthorNameInput(): Promise<string> {
-    return await this.authorNameInput.getAttribute('value');
+  async getNameOfAuthorInput(): Promise<string> {
+    return await this.nameOfAuthorInput.getAttribute('value');
   }
 
   async setNomOfCopiesInput(nomOfCopies: string): Promise<void> {
